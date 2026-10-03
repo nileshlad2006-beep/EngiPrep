@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Aptitude Test</title>
+
+    <link rel="stylesheet"
+          href="/static/css/Preparation/AptitudeTest.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+
+        <img src="/static/images/EngiPrep_Logo.png"
+             alt="Logo Image">
+
+        <h2>
+            EngiPrep – Placement Preparation Platform
+        </h2>
+
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/Preparation">
+            Preparation
+        </a>
+
+        <a href="/Dashboard">
+            Dashboard
+        </a>
+
+        <a href="/login">
+            Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+<div class="test-page">
+
+    <div class="page-header">
+
+        <span class="section-title">
+            APTITUDE TEST
+        </span>
+
+        <h1>
+            Practice Test
+        </h1>
+
+        <p>
+            Answer the following questions and check your aptitude skills.
+        </p>
+
+    </div>
+
+
+    <form action="/Aptitude/Test/{{ topic_id }}"
+          method="POST">
+
+
+        <div class="question-container">
+
+
+            {% for question in questions %}
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    Question {{ loop.index }}
+                </div>
+
+                <h3>
+                    {{ question[1] }}
+                </h3>
+
+
+                <div class="options">
+
+
+                    <label class="option">
+
+                        <input type="radio"
+                               name="question_{{ question[0] }}"
+                               value="A"
+                               required>
+
+                        <span>
+                            A. {{ question[2] }}
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input type="radio"
+                               name="question_{{ question[0] }}"
+                               value="B">
+
+                        <span>
+                            B. {{ question[3] }}
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input type="radio"
+                               name="question_{{ question[0] }}"
+                               value="C">
+
+                        <span>
+                            C. {{ question[4] }}
+                        </span>
+
+                    </label>
+
+
+                    <label class="option">
+
+                        <input type="radio"
+                               name="question_{{ question[0] }}"
+                               value="D">
+
+                        <span>
+                            D. {{ question[5] }}
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+
+        <div class="submit-section">
+
+            <button type="submit">
+                Submit Test
+            </button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

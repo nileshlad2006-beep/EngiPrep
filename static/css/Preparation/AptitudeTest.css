@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #070b1a;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+header {
+    height: 78px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(7, 11, 26, 0.95);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.logo h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #c8ccdc;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+    background: rgba(124, 58, 237, 0.15);
+}
+
+.test-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 55px 6% 80px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title {
+    display: inline-block;
+    color: #a78bfa;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #ffffff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-header p {
+    color: #9da5bd;
+    font-size: 15px;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.question-card {
+    padding: 28px;
+    border-radius: 18px;
+    background: rgba(15, 23, 50, 0.72);
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.question-number {
+    color: #a78bfa;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.question-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(7, 11, 26, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.12);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option:hover {
+    background: rgba(124, 58, 237, 0.12);
+    border-color: rgba(139, 92, 246, 0.35);
+}
+
+.option input {
+    width: 17px;
+    height: 17px;
+    accent-color: #7c3aed;
+    cursor: pointer;
+}
+
+.option span {
+    color: #c8ccdc;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.submit-section button {
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #6366f1
+    );
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-section button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.3);
+}
+
+@media (max-width: 750px) {
+
+    header {
+        height: auto;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .test-page {
+        padding: 40px 5% 60px;
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .logo h2 {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .page-header h1 {
+        font-size: 29px;
+    }
+
+    .question-card {
+        padding: 22px;
+    }
+
+    .question-card h3 {
+        font-size: 15px;
+    }
+
+}

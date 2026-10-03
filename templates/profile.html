@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complete Profile - EngiPrep</title>
+
+    <link rel="stylesheet" href="/static/css/profile.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <img src="/static/images/EngiPrep_Logo.png" alt="EngiPrep Logo">
+        <h2>EngiPrep</h2>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Preparation">Preparation</a></li>
+            <li><a href="/Dashboard">Dashboard</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+
+<main class="profile-page">
+
+    <div class="profile-heading">
+        <h1>Complete Your Profile</h1>
+
+        <p>
+            Tell us about yourself so EngiPrep can personalize your
+            placement preparation journey.
+        </p>
+    </div>
+
+
+    <form class="profile-form" action="/profile" method="POST">
+
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <span>01</span>
+
+                <div>
+                    <h2>Personal Information</h2>
+                    <p>Enter your basic personal details.</p>
+                </div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="input-group full-width">
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        name="full_name"
+                        placeholder="Enter your full name"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Enter your phone number">
+                </div>
+
+
+                <div class="input-group">
+                    <label>City</label>
+                    <input
+                        type="text"
+                        name="city"
+                        placeholder="Enter your city">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <span>02</span>
+
+                <div>
+                    <h2>Educational Details</h2>
+                    <p>Provide your current academic information.</p>
+                </div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="input-group full-width">
+                    <label>College / University</label>
+
+                    <input
+                        type="text"
+                        name="college_name"
+                        placeholder="Enter your college or university"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Branch</label>
+
+                    <input
+                        type="text"
+                        name="branch"
+                        placeholder="Example: AIML"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Semester</label>
+
+                    <select name="semester" required>
+
+                        <option value="">Select Semester</option>
+
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                        <option value="7">Semester 7</option>
+                        <option value="8">Semester 8</option>
+
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Current CGPA</label>
+
+                    <input
+                        type="number"
+                        name="cgpa"
+                        min="0"
+                        max="10"
+                        step="0.01"
+                        placeholder="Example: 8.25"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Graduation Year</label>
+
+                    <select name="graduation_year">
+
+                        <option value="">Select Year</option>
+
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <span>03</span>
+
+                <div>
+                    <h2>Academic & Competition Experience</h2>
+                    <p>Tell us about your academic achievements and participation.</p>
+                </div>
+            </div>
+
+
+            <div class="input-group full-width">
+
+                <label>Competitions Participated In</label>
+
+                <textarea
+                    name="competitions"
+                    placeholder="Example: Hackathon, Coding Competition, Quiz Competition, Project Competition..."></textarea>
+
+            </div>
+
+
+            <div class="input-group full-width">
+
+                <label>Academic Achievements</label>
+
+                <textarea
+                    name="academic_achievements"
+                    placeholder="Mention your academic achievements, awards, ranks or other accomplishments..."></textarea>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <span>04</span>
+
+                <div>
+                    <h2>Skills & Self Analysis</h2>
+                    <p>Help us understand your current strengths and areas for improvement.</p>
+                </div>
+            </div>
+
+
+            <div class="input-group full-width">
+
+                <label>Technical Skills</label>
+
+                <input
+                    type="text"
+                    name="skills"
+                    placeholder="Example: Python, C, HTML, CSS, JavaScript, SQL">
+            </div>
+
+
+            <div class="input-group full-width">
+
+                <label>Strengths</label>
+
+                <textarea
+                    name="strengths"
+                    placeholder="Example: Problem solving, communication, teamwork, leadership..."></textarea>
+
+            </div>
+
+
+            <div class="input-group full-width">
+
+                <label>Weaknesses / Areas to Improve</label>
+
+                <textarea
+                    name="weaknesses"
+                    placeholder="Example: Public speaking, logical reasoning, time management..."></textarea>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <span>05</span>
+
+                <div>
+                    <h2>Projects</h2>
+                    <p>Add your project information.</p>
+                </div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="input-group full-width">
+
+                    <label>Project Name</label>
+
+                    <input
+                        type="text"
+                        name="project_title"
+                        placeholder="Example: EngiPrep Placement Portal">
+
+                </div>
+
+
+                <div class="input-group full-width">
+
+                    <label>Project Technologies</label>
+
+                    <input
+                        type="text"
+                        name="project_technologies"
+                        placeholder="Example: HTML, CSS, JavaScript, Flask, PostgreSQL">
+
+                </div>
+
+
+                <div class="input-group full-width">
+
+                    <label>Project Description</label>
+
+                    <textarea
+                        name="project_description"
+                        placeholder="Describe your project..."></textarea>
+
+                </div>
+
+
+                <div class="input-group full-width">
+
+                    <label>GitHub Project Link</label>
+
+                    <input
+                        type="url"
+                        name="project_github"
+                        placeholder="https://github.com/username/project">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="form-section">
+
+            <div class="section-title">
+                <span>06</span>
+
+                <div>
+                    <h2>Professional Links</h2>
+                    <p>Add your professional profiles.</p>
+                </div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="input-group">
+
+                    <label>LinkedIn Profile</label>
+
+                    <input
+                        type="url"
+                        name="linkedin"
+                        placeholder="https://linkedin.com/in/username">
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>GitHub Profile</label>
+
+                    <input
+                        type="url"
+                        name="github"
+                        placeholder="https://github.com/username">
+
+                </div>
+
+
+                <div class="input-group full-width">
+
+                    <label>Resume Link</label>
+
+                    <input
+                        type="url"
+                        name="resume_link"
+                        placeholder="Enter your resume link">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <div class="form-footer">
+
+            <p>
+                You can update your profile later from the Dashboard.
+            </p>
+
+            <button type="submit">
+                Save Profile
+                <span>→</span>
+            </button>
+
+        </div>
+
+
+    </form>
+
+</main>
+
+</body>
+
+</html>
