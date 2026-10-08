@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-
+html {
+    min-height: 100%;
+}
 
 body {
     min-height: 100vh;
@@ -14,11 +16,12 @@ body {
         radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.15), transparent 30%),
         #070b18;
     color: white;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 header {
-    height: 80px;
+    min-height: 80px;
     width: 100%;
     padding: 0 7%;
     display: flex;
@@ -31,8 +34,6 @@ header {
     backdrop-filter: blur(18px);
 }
 
-
-
 .logo {
     display: flex;
     align-items: center;
@@ -44,6 +45,7 @@ header {
     font-weight: 700;
     white-space: nowrap;
     background: linear-gradient(90deg, #ffffff, #a78bfa);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -88,12 +90,13 @@ header nav ul li a:hover {
 
 header nav ul li:last-child a {
     color: white;
-    background:ff, #8b5cf6;
+    background: linear-gradient(135deg, #635bff, #8b5cf6);
     box-shadow: 0 8px 25px rgba(99, 91, 255, 0.25);
 }
 
 .signup-container {
     width: 460px;
+    max-width: calc(100% - 30px);
     margin: 65px auto 80px;
     padding: 42px;
     position: relative;
@@ -240,8 +243,17 @@ header nav ul li:last-child a {
 @media (max-width: 600px) {
 
     header {
-        height: 70px;
+        min-height: 70px;
         padding: 0 5%;
+    }
+
+    .logo h2 {
+        font-size: 15px;
+    }
+
+    .logo img {
+        width: 36px;
+        height: 36px;
     }
 
     header nav ul {
@@ -255,18 +267,20 @@ header nav ul li:last-child a {
 
     .signup-container {
         width: calc(100% - 30px);
-        margin: 40px auto;
+        max-width: none;
+        margin: 40px auto 60px;
         padding: 30px 22px;
-        width: calc(100% - 35px);
-        padding: 35px 25px;
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin: 50px auto;
     }
 
     .signup-container h2 {
         font-size: 29px;
+    }
+
+    .welcome-text {
+        margin-bottom: 30px;
+    }
+
+    .input-group {
+        margin-bottom: 22px;
     }
 }

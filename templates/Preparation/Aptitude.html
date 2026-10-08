@@ -2,18 +2,21 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <title>Aptitude Preparation</title>
-
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
     <link rel="stylesheet"
           href="/static/css/Preparation/Aptitude.css">
+
 </head>
 
 <body>
+
 
 <header>
 
@@ -28,9 +31,12 @@
 
     </div>
 
+
     <nav>
 
-        <a href="/">Home</a>
+        <a href="/">
+            Home
+        </a>
 
         <a href="/Preparation">
             Preparation
@@ -40,16 +46,36 @@
             Dashboard
         </a>
 
-        <a href="/login">
-            Login
-        </a>
+        {% if session.get("user_id") %}
+
+<a href="/logout">
+    Logout
+</a>
+
+ {% else %}
+
+<a href="/login">
+    Login
+</a>
+
+{% endif %}
 
     </nav>
 
 </header>
 
 
+
 <div class="aptitude-page">
+
+
+    <!-- BACK TO PREPARATION -->
+
+    <a href="/Preparation" class="back-btn">
+        ← Back to Preparation
+    </a>
+
+
 
     <div class="page-header">
 
@@ -65,6 +91,7 @@
     </div>
 
 
+
     <div class="aptitude-layout">
 
 
@@ -77,8 +104,10 @@
 
             {% for section in sections %}
 
+
             <a href="/Aptitude/{{ section[0] }}"
                {% if loop.first %}class="active-topic"{% endif %}>
+
 
                 {% if loop.index == 1 %}
 
@@ -112,15 +141,20 @@
 
                 {% endif %}
 
+
                 <span>
                     {{ section[1] }}
                 </span>
 
+
             </a>
+
 
             {% endfor %}
 
+
         </aside>
+
 
 
         <main class="aptitude-content">
@@ -144,10 +178,12 @@
             </div>
 
 
+
             <div class="topic-grid">
 
 
                 {% for section in sections %}
+
 
                 <div class="topic-card">
 
@@ -185,9 +221,11 @@
                     {% endif %}
 
 
+
                     <h3>
                         {{ section[1] }}
                     </h3>
+
 
 
                     {% if loop.index == 1 %}
@@ -231,12 +269,17 @@
                     {% endif %}
 
 
+
                     <a href="/Aptitude/{{ section[0] }}">
 
                         {% if loop.index == 5 %}
+
                         Start Test →
+
                         {% else %}
+
                         Start Practice →
+
                         {% endif %}
 
                     </a>
@@ -244,16 +287,21 @@
 
                 </div>
 
+
                 {% endfor %}
 
 
             </div>
 
+
         </main>
+
 
     </div>
 
+
 </div>
+
 
 </body>
 

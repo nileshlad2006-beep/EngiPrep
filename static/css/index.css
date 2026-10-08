@@ -40,10 +40,8 @@ header {
 }
 
 .logo h2 {
-    font-size: 20px;
-    font-weight: 700;
-    white-space: nowrap;
     background: linear-gradient(90deg, #ffffff, #a78bfa);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -106,6 +104,7 @@ nav a:hover {
     font-weight: 800;
     margin-bottom: 22px;
     background: linear-gradient(90deg, #ffffff, #a78bfa);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -173,6 +172,7 @@ nav a:hover {
     font-weight: 700;
     margin-bottom: 35px;
     background: linear-gradient(90deg, #ffffff, #a78bfa);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

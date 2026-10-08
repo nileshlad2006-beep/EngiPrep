@@ -264,4 +264,21 @@ def profile_page():
 
         return redirect(url_for("home"))
 
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT profile_id
+        FROM student_profile
+        WHERE user_id = %s
+    """, (user_id,))
+
+    existing_profile = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if existing_profile:
+        return redirect(url_for("dashboard.dashboard_page"))
+
     return render_template("profile.html")

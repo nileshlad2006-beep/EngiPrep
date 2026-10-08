@@ -1,0 +1,6 @@
+Flask
+psycopg2-binary
+python-dotenv
+Werkzeug
+google-genai
+gunicorn

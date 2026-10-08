@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
     <title>Dashboard - EngiPrep</title>
-
-    <link rel="stylesheet" href="/static/css/Dashboard.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet"
+          href="/static/css/Dashboard.css">
 </head>
-
 <body>
-
 <header>
-
-    <div class="logo">
-        <img src="/static/images/EngiPrep_Logo.png" alt="EngiPrep Logo">
-        <h2>EngiPrep</h2>
+ <div class="logo">
+        <img src="/static/images/EngiPrep_Logo.png"
+             alt="EngiPrep Logo">
+        <h2>
+            EngiPrep
+        </h2>
     </div>
-
+    
     <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
+    <a href="/">Home</a>
 
-            <li>
-                <a href="/Preparation">Preparation</a>
-            </li>
+    <a href="/Preparation">
+        Preparation
+    </a>
 
-            <li>
-                <a href="/Dashboard" class="active">Dashboard</a>
-            </li>
+    <a href="/Dashboard">
+        Dashboard
+    </a>
 
-            <li>
-                <a href="/profile">My Profile</a>
-            </li>
-        </ul>
-    </nav>
+    {% if session.get("user_id") %}
+
+<a href="/logout">
+    Logout
+</a>
+
+{% else %}
+
+<a href="/login">
+    Login
+</a>
+
+{% endif %}
+
+</nav>
 
 </header>
 
@@ -56,13 +63,21 @@
             </p>
 
             <h1>
+
                 Welcome,
+
                 {% if profile %}
+
                     {{ profile[0] }}
+
                 {% else %}
+
                     Student
+
                 {% endif %}
+
                 👋
+
             </h1>
 
             <p>
@@ -72,8 +87,11 @@
         </div>
 
 
-        <a href="/profile" class="profile-button">
+        <a href="/profile"
+           class="profile-button">
+
             Edit Profile
+
         </a>
 
     </section>
@@ -100,9 +118,13 @@
                 <h2>
 
                     {% if profile and profile[6] is not none %}
+
                         {{ profile[6] }}
+
                     {% else %}
+
                         --
+
                     {% endif %}
 
                 </h2>
@@ -370,9 +392,13 @@
                     {% if test_count > 0 %}
 
                     <p>
+
                         You have completed
+
                         {{ test_count }}
+
                         aptitude test{% if test_count != 1 %}s{% endif %}.
+
                     </p>
 
                     {% else %}
@@ -390,8 +416,11 @@
 
 
 
-            <a href="/Preparation" class="action-button">
+            <a href="/Preparation"
+               class="action-button">
+
                 Start Preparation →
+
             </a>
 
 
@@ -512,7 +541,8 @@
 
                 {% if profile[9] %}
 
-                <a href="{{ profile[9] }}" target="_blank">
+                <a href="{{ profile[9] }}"
+                   target="_blank">
 
                     LinkedIn
 
@@ -540,7 +570,8 @@
 
                 {% if profile[10] %}
 
-                <a href="{{ profile[10] }}" target="_blank">
+                <a href="{{ profile[10] }}"
+                   target="_blank">
 
                     GitHub
 
@@ -568,7 +599,8 @@
 
                 {% if profile[11] %}
 
-                <a href="{{ profile[11] }}" target="_blank">
+                <a href="{{ profile[11] }}"
+                   target="_blank">
 
                     Resume
 
@@ -682,8 +714,8 @@
                     <div class="section-progress-bar">
 
                         <div
-                           class="section-progress-fill"
-                           style="--progress-width: {{ section[2] }}%;">
+                            class="section-progress-fill"
+                            style="--progress-width: {{ section[2] }}%;">
                         </div>
 
                     </div>
@@ -764,6 +796,176 @@
 
 
         </div>
+
+
+    </section>
+
+
+
+    <!-- APTITUDE TEST HISTORY -->
+
+    <section class="test-history-section">
+
+
+        <div class="history-header">
+
+            <p class="card-label">
+                TEST HISTORY
+            </p>
+
+            <h2>
+                Your Aptitude Test History
+            </h2>
+
+            <p>
+                Review your previous aptitude test attempts and scores.
+            </p>
+
+        </div>
+
+
+
+        {% if aptitude_history %}
+
+
+        <div class="history-table-wrapper">
+
+
+            <table class="history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            Topic
+                        </th>
+
+                        <th>
+                            Score
+                        </th>
+
+                        <th>
+                            Correct
+                        </th>
+
+                        <th>
+                            Percentage
+                        </th>
+
+                        <th>
+                            Attempt Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    {% for test in aptitude_history %}
+
+
+                    <tr>
+
+                        <td>
+                            {{ loop.index }}
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ test[1] }}
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="history-score">
+                                {{ test[4] }} / {{ test[2] }}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+                            {{ test[3] }} / {{ test[2] }}
+                        </td>
+
+
+                        <td>
+
+                            <span class="history-percentage">
+
+                                {{ "%.2f"|format(test[5]|float) }}%
+
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            {% if test[6] %}
+
+                                {{ test[6].strftime("%d %b %Y, %I:%M %p") }}
+
+                            {% else %}
+
+                                --
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+
+                    {% endfor %}
+
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+
+        {% else %}
+
+
+        <div class="history-empty">
+
+            <div class="history-empty-icon">
+                📝
+            </div>
+
+            <h3>
+                No Tests Completed Yet
+            </h3>
+
+            <p>
+                Complete your first aptitude test to see your performance history here.
+            </p>
+
+            <a href="/Preparation">
+                Start Aptitude Practice →
+            </a>
+
+        </div>
+
+
+        {% endif %}
 
 
     </section>
